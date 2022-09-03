@@ -1,4 +1,4 @@
-package com.asknilesh.noteapplication
+package com.asknilesh.noteapplication.feature_note.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
