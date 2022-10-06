@@ -2,9 +2,9 @@ package com.asknilesh.noteapplication.feature_note.domain.use_case
 
 import com.asknilesh.noteapplication.feature_note.domain.model.Note
 import com.asknilesh.noteapplication.feature_note.domain.repository.NoteRepository
-import com.asknilesh.noteapplication.feature_note.domain.util.Ascending
-import com.asknilesh.noteapplication.feature_note.domain.util.Descending
 import com.asknilesh.noteapplication.feature_note.domain.util.NoteOrder
+import com.asknilesh.noteapplication.feature_note.domain.util.OrderType.Ascending
+import com.asknilesh.noteapplication.feature_note.domain.util.OrderType.Descending
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
