@@ -1,5 +1,6 @@
 package com.asknilesh.noteapplication.feature_note.presentation.add_note
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -47,6 +48,7 @@ import com.asknilesh.noteapplication.feature_note.presentation.add_note.componen
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun AddEditNoteScreen(
   navController: NavController,
@@ -141,7 +143,6 @@ fun AddEditNoteScreen(
         onFocusChange = {
           viewModel.onEvent(ChangeTitleFocus(it))
         },
-        isHintVisible = titleState.isHintVisible,
         singleLine = true,
         textStyle = MaterialTheme.typography.h5
       )
@@ -156,7 +157,6 @@ fun AddEditNoteScreen(
         onFocusChange = {
           viewModel.onEvent(ChangeContentFocus(it))
         },
-        isHintVisible = contentState.isHintVisible,
         textStyle = MaterialTheme.typography.body1,
         modifier = Modifier.fillMaxHeight()
       )

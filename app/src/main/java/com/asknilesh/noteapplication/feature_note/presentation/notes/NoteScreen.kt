@@ -1,5 +1,6 @@
 package com.asknilesh.noteapplication.feature_note.presentation.notes
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -37,8 +38,10 @@ import androidx.navigation.NavController
 import com.asknilesh.noteapplication.feature_note.presentation.notes.component.NoteItem
 import com.asknilesh.noteapplication.feature_note.presentation.notes.component.OrderSection
 import com.asknilesh.noteapplication.feature_note.presentation.util.Screen
+import com.asknilesh.noteapplication.utils.Constants
 import kotlinx.coroutines.launch
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun NoteScreen(
   navController: NavController,
@@ -106,7 +109,7 @@ fun NoteScreen(
               .clickable {
                 navController.navigate(
                   Screen.AddEditNoteScreen.route +
-                    "?NOTE_ID=${note.clientId}&NOTE_COLOR=${note.color}"
+                    "?${Constants.NOTE_ID}=${note.clientId}&${Constants.NOTE_COLOR}=${note.color}"
                 )
               },
             onDeleteItem = {

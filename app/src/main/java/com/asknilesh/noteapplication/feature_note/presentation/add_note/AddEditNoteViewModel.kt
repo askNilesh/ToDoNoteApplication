@@ -15,6 +15,7 @@ import com.asknilesh.noteapplication.feature_note.presentation.add_note.AddEditN
 import com.asknilesh.noteapplication.feature_note.presentation.add_note.AddEditNoteEvent.EnteredContent
 import com.asknilesh.noteapplication.feature_note.presentation.add_note.AddEditNoteEvent.EnteredTitle
 import com.asknilesh.noteapplication.feature_note.presentation.add_note.AddEditNoteEvent.SaveNote
+import com.asknilesh.noteapplication.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -31,13 +32,13 @@ class AddEditNoteViewModel @Inject constructor(
   private var currentId: String? = null
 
   init {
-    savedStateHandle.get<String>("NOTE_ID")?.let { noteId ->
+    savedStateHandle.get<String>(Constants.NOTE_ID)?.let { noteId ->
       if (noteId.isNotEmpty()) {
         viewModelScope.launch {
           notesUseCases.getNoteUseCase(noteId)?.also {
             currentId = it.clientId
             _noteTitle.value = _noteTitle.value.copy(text = it.title, isHintVisible = false)
-            _noteContent.value = _noteContent.value.copy(text = it.title, isHintVisible = false)
+            _noteContent.value = _noteContent.value.copy(text = it.content, isHintVisible = false)
             _noteColor.value = it.color
 
           }
